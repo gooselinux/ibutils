@@ -1,0 +1,11 @@
+--- ibutils-1.5.4/ibmgtsim/src/sma.cpp.const	2010-03-17 13:16:09.914379095 -0400
++++ ibutils-1.5.4/ibmgtsim/src/sma.cpp	2010-03-17 13:15:22.884253686 -0400
+@@ -508,7 +508,7 @@ int IBMSSma::nodeDescMad(ibms_mad_msg_t 
+   if (pSimNode->nodeInfo.node_type != 2)
+   {
+     // parse node name of format sysname/U[0-9]
+-    char *p_sep = strstr(pSimNode->getIBNode()->name.c_str(), "/U");
++    const char *p_sep = strstr(pSimNode->getIBNode()->name.c_str(), "/U");
+     if (!p_sep) {
+ 	desc = (pSimNode->getIBNode())->p_system->name + string(" HCA-1 (Mellanox HCA)");
+     } else {
